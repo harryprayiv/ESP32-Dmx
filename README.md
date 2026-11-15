@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/chrisstaite/TeensyDmx.svg?branch=master)](https://travis-ci.org/chrisstaite/TeensyDmx)
+[![Build Status](https://travis-ci.org/chrisstaite/ESP32-Dmx.svg?branch=master)](https://travis-ci.org/harryprayiv/ESP32-Dmx)
 
-TeensyDmx
+ESP32-Dmx
 =========
 
-DMX Transmit and Receive for Teensy 3.x and Teensy-LC with RDM responder
+DMX Transmit and Receive for ESP32 C3 with RDM responder
 (client) and RDM controller support.  It should support all of the serial
 interfaces on the devices.
 
