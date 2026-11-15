@@ -10,14 +10,24 @@ menu "ESP32 DMX controller"
 
     config DMX_TX_GPIO
         int "GPIO wired to the transceiver's DI pin"
+        range 0 10 if IDF_TARGET_ESP32C3
+        default 4 if IDF_TARGET_ESP32C3
         default 17
+        help
+            On the ESP32-C3 only GPIO 0 to 10 are offered. 12 to 17 are the
+            flash, 18 and 19 are USB, 20 and 21 are the serial console.
+            Of 0 to 10, leave 2, 8 and 9 alone: the chip reads them at reset
+            to choose its boot mode.
 
     config DMX_REDE_GPIO
         int "GPIO wired to the transceiver's RE and DE pins, or -1"
+        range -1 10 if IDF_TARGET_ESP32C3
+        default 5 if IDF_TARGET_ESP32C3
         default 21
         help
             Driven high while transmitting. Use -1 if the hardware enables
-            the driver on its own.
+            the driver on its own. The ESP32-C3 limits are the same as for
+            the DI pin.
 
     config DMX_AP_SSID
         string "Wi-Fi access point name"
