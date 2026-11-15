@@ -1,0 +1,12 @@
+# WebSocket support in the HTTP server.
+CONFIG_HTTPD_WS_SUPPORT=y
+
+# 1 ms tick, so the DMX task can hold a 25 ms frame period.
+CONFIG_FREERTOS_HZ=1000
+
+# Keep the UART interrupt running while the flash cache is off (NVS writes).
+CONFIG_UART_ISR_IN_IRAM=y
+
+# Room for the Wi-Fi stack plus the embedded web console.
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+CONFIG_PARTITION_TABLE_SINGLE_APP_LARGE=y

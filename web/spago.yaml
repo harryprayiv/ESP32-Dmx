@@ -1,0 +1,30 @@
+package:
+  name: esp32dmx-console
+  dependencies:
+    - aff
+    - arraybuffer
+    - arraybuffer-types
+    - arrays
+    - datetime
+    - effect
+    - either
+    - foldable-traversable
+    - foreign
+    - halogen
+    - integers
+    - lists
+    - maybe
+    - ordered-collections
+    - prelude
+    - tuples
+    - uint
+    - web-html
+    - web-socket
+  bundle:
+    module: Main
+    outfile: dist/app.js
+    platform: browser
+    minify: true
+workspace:
+  packageSet:
+    registry: 82.1.1

@@ -1,0 +1,35 @@
+menu "ESP32 DMX controller"
+
+    config DMX_UART_NUM
+        int "UART that drives the RS-485 transceiver"
+        range 1 2
+        default 1
+        help
+            UART0 is the serial console, so it is not offered. UART2 does not
+            exist on every chip; the build fails if the choice is not valid.
+
+    config DMX_TX_GPIO
+        int "GPIO wired to the transceiver's DI pin"
+        default 17
+
+    config DMX_REDE_GPIO
+        int "GPIO wired to the transceiver's RE and DE pins, or -1"
+        default 21
+        help
+            Driven high while transmitting. Use -1 if the hardware enables
+            the driver on its own.
+
+    config DMX_AP_SSID
+        string "Wi-Fi access point name"
+        default "esp32dmx"
+
+    config DMX_AP_PASSWORD
+        string "Wi-Fi access point password (8 to 63 characters)"
+        default "change-me-512"
+
+    config DMX_AP_CHANNEL
+        int "Wi-Fi channel"
+        range 1 11
+        default 6
+
+endmenu

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e1012">
+<link rel="icon" href="data:,">
+<title>ESP32 DMX</title>
+<style>
+  :root {
+    --bg: #0e1012;
+    --panel: #171a1e;
+    --edge: #2a2f36;
+    --text: #e8e6e1;
+    --dim: #8b9099;
+    --accent: #ffb000;
+    --danger: #ff5a4f;
+    --ok: #57d18a;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); color: var(--text); font: 16px/1.3 system-ui, sans-serif; }
+  body { margin: 0; padding: env(safe-area-inset-top) 12px calc(12px + env(safe-area-inset-bottom)); }
+  .console { max-width: 30rem; margin: 0 auto; display: grid; gap: 12px; }
+
+  header { display: flex; align-items: center; gap: 12px; padding-top: 12px; }
+  h1 { margin: 0; font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; }
+  .link { font: 0.8rem var(--mono); margin-right: auto; }
+  .link.online { color: var(--ok); }
+  .link.connecting { color: var(--accent); }
+  .link.offline { color: var(--danger); }
+
+  button {
+    font: inherit; color: var(--text); background: var(--panel);
+    border: 1px solid var(--edge); border-radius: 8px;
+    touch-action: manipulation; user-select: none; -webkit-user-select: none;
+  }
+  button:active:not(:disabled) { background: var(--edge); }
+  button:disabled { opacity: 0.4; }
+  .blackout { padding: 8px 14px; border-color: var(--danger); color: var(--danger); }
+
+  section { background: var(--panel); border: 1px solid var(--edge); border-radius: 12px; padding: 10px 12px; }
+
+  .fader { display: grid; grid-template-columns: 3ch 1fr 3ch 4ch; align-items: center; gap: 10px; min-height: 40px; }
+  .fader span { font: 0.9rem var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+  .fader .name { color: var(--dim); }
+  .fader .percent { color: var(--dim); }
+  .fader.master .name { color: var(--accent); }
+  .fader input { width: 100%; height: 32px; margin: 0; accent-color: var(--accent); }
+
+  .bank { display: flex; align-items: center; justify-content: space-between; margin: 8px 0; padding: 8px 0; border-block: 1px solid var(--edge); }
+  .bank button { padding: 8px 18px; }
+  .bank span { font: 0.9rem var(--mono); color: var(--dim); }
+
+  .command { min-height: 4.6rem; }
+  .entry { font: 1.25rem var(--mono); min-height: 1.7rem; overflow-wrap: anywhere; }
+  .entry.hint { color: #565c66; }
+  .notice { font: 0.85rem var(--mono); color: var(--dim); min-height: 1.2rem; margin-top: 4px; }
+
+  .keypad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .key { min-height: 56px; font: 1.3rem var(--mono); background: var(--bg); }
+  .key.operator { color: var(--accent); }
+  .key.edit { color: var(--dim); font-size: 1rem; }
+  .key.enter { background: var(--accent); border-color: var(--accent); color: #111; font-weight: 700; }
+</style>
+</head>
+<body>
+<noscript>This console needs scripting enabled.</noscript>
+<script src="/app.js"></script>
+</body>
+</html>
